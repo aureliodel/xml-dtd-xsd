@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://schemas.microsoft.com/office/word/2010/wordprocessing">
+	 
+<xs:element name="w:document">
+      <xs:complexType>
+      	<xs:sequence>
+
+      		<xs:element name="w:body">
+				<xs:complexType>
+      				<xs:sequence>    							
+
+						<xs:element name="w:p">
+							<xs:complexType>
+      						
+
+                                                      <xs:element name="w:r" maxOccurs="unbounded">
+                                                            <xs:complexType>
+
+                                                                  <xs:element name="w:t" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                                                                        <xs:complexType>
+
+                                                                            <xs:attribute name="xml:space" type="xs:string"/>
+                                                                  
+                                                                        </xs:complexType>
+                                                                  </xs:element>
+
+                                                                  <xs:element name="w:rpr" minOccurs="0" maxOccurs="unbounded">
+                                                                        <xs:complexType>
+
+                                                                              <xs:element name="w:rpr" minOccurs="0" maxOccurs="unbounded">
+                                                                                    <xs:complexType>
+
+                                                                                          <xs:element name="w:i" minOccurs="0" maxOccurs="unbounded"/>
+                                                                                          <xs:element name="w:b" minOccurs="0" maxOccurs="unbounded"/>
+                                                                                          <xs:element name="w:u" minOccurs="0" maxOccurs="unbounded">
+                                                                                                <xs:complexType>
+
+                                                                                                      <xs:attribute name="w:val" type="xs:string"/>
+                                                                  
+                                                                                                </xs:complexType>
+                                                                                          </xs:element>
+
+                                                                                    </xs:complexType>
+                                                                              </xs:element>
+
+                                                                        </xs:complexType>
+                                                                  </xs:element>
+
+                                                                  <xs:attribute name="w:rsidRPr" type="xs:string"/>
+
+                                                            </xs:complexType>
+                                                      </xs:element>
+
+                                                      <xs:element name="w:bookmarkStart" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+                                                      <xs:element name="w:bookmarkEnd" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>				
+							     	
+      							
+      						</xs:complexType>
+      					</xs:element>
+
+                                    <xs:element name="w:sectPr">
+                                          <xs:complexType>
+                                                <xs:sequence>
+
+                                                      <xs:element name="w:pgSz">
+                                                            <xs:complexType>
+
+                                                                  <xs:attribute name="w:w" type="xs:string"/>
+                                                                  <xs:attribute name="w:h" type="xs:string"/>
+                                                                  
+                                                            </xs:complexType>
+                                                      </xs:element>
+
+                                                      <xs:element name="w:pgMar">
+                                                            <xs:complexType>
+
+                                                                  <xs:attribute name="w:top" type="xs:string"/>
+                                                                  <xs:attribute name="w:right" type="xs:string"/>
+                                                                  <xs:attribute name="w:bottomt" type="xs:string"/>
+                                                                  <xs:attribute name="w:left" type="xs:string"/>
+                                                                  <xs:attribute name="w:header" type="xs:string"/>
+                                                                  <xs:attribute name="w:footer" type="xs:string"/>
+                                                                  <xs:attribute name="w:gutter" type="xs:string"/>
+                                                                  
+                                                            </xs:complexType>
+                                                      </xs:element>
+
+                                                      <xs:element name="cols">
+                                                            <xs:complexType>
+
+                                                                  <xs:attribute name="w:space" type="xs:string"/>                                                                  
+                                                                  
+                                                            </xs:complexType>
+                                                      </xs:element>
+
+                                                      <xs:element name="docGrid">
+                                                            <xs:complexType>
+
+                                                                  <xs:attribute name="w:linePitch" type="xs:string"/>                                                                  
+                                                                  
+                                                            </xs:complexType>
+                                                      </xs:element>
+
+                                                </xs:sequence>
+
+                                                <xs:attribute name="w:rsidR" type="xs:string"/>
+
+                                          </xs:complexType>
+                                    </xs:element>
+
+      				</xs:sequence>
+      			</xs:complexType>
+      		</xs:element>
+
+      	</xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+</xs:schema>

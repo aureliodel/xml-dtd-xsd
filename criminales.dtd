@@ -1,0 +1,30 @@
+
+<!ELEMENT criminales (criminal)*>
+
+	<!ELEMENT criminal (datos_personales, historial_medico?, historial_penal)>
+
+		<!ELEMENT datos_personales (apellidos_nombre, fecha_nacimiento, altura, descripcion_fisica, direccion_completa)>
+
+			<!ATTLIST datos_personales dni CDATA>
+			<!ATTLIST datos_personales sexo (H|M)> 
+			<!ELEMENT apellidos_nombre (#PCDATA)>
+			<!ELEMENT fecha_nacimiento (#PCDATA)>
+			<!ELEMENT altura (#PCDATA)>
+			<!ELEMENT descripcion_fisica (#PCDATA)>
+
+			<!ELEMENT direccion_completa (direccion, localidad, codigo_postal, provincia)>
+
+				<!ELEMENT direccion (#PCDATA)>
+				!ELEMENT localidad (#PCDATA)>
+				<!ELEMENT codigo_postal (#PCDATA)>
+				<!ELEMENT provincia (#PCDATA)>
+
+		<!ELEMENT historial_medico (#PCDATA)>
+
+		<!ELEMENT historial_penal (estado_de_libertad, delitos_cometidos, juzagado, pena, cumplimiento)>
+
+			<!ELEMENT estado_de_libertad (#PCDATA)>
+			<!ELEMENT delitos_cometidos (#PCDATA)>
+			<!ELEMENT juzgado (#PCDATA)>
+			<!ELEMENT pena (#PCDATA)>
+			<!ELEMENT cumplimiento (#PCDATA)>

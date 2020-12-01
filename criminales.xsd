@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="criminales" >
+    	<xs:complexType>
+      		<xs:sequence>
+
+    		<xs:element name="criminal" maxOccurs="unbounded">
+    			<xs:complexType>
+      				<xs:sequence>
+
+       				<xs:element name="datos_personales" type="datos"/>
+        			<xs:element name="historial_medico" minOccurs="0" />
+        			<xs:element name="historial_penal" type="historial"/>
+
+        			</xs:sequence>
+    			</xs:complexType>
+ 			</xs:element>
+
+  			<xs:complexType name="datos">
+    			<xs:sequence>
+
+      				<xs:element name="apellidos_nombre" >
+      					<xs:simpleType>
+                  			<xs:restriction base="xs:string">
+                    			<xs:pattern value="\D{1,32} \D{1,32}, \D{1,33}"/>
+                  			</xs:restriction>
+                		</xs:simpleType>
+                	</xs:element>
+
+      				<xs:element name="fecha_nacimiento" type="edadPersona"/>
+      				<xs:element name="altura" type="xs:string"/>
+
+      				<xs:element name="descripcion_fisica">
+      					<xs:simpleType>
+                  			<xs:restriction base="xs:string">
+                    			<xs:pattern value=".{1,200}"/>
+                  			</xs:restriction>
+                		</xs:simpleType>
+                	</xs:element>
+
+      				<xs:element name="direccion_completa" type="direccion"/>
+
+    			</xs:sequence>
+
+    			<xs:attributeGroup ref="persona"/>
+
+  			</xs:complexType>
+
+  			<xs:complexType name="direccion">
+    			<xs:sequence>
+
+      				<xs:element name="direccion">
+      					<xs:simpleType>
+                  			<xs:restriction base="xs:string">
+                    			<xs:pattern value=".{1,120}"/>
+                  			</xs:restriction>
+                		</xs:simpleType>
+                	</xs:element>
+
+      				<xs:element name="localidad">
+      					<xs:simpleType>
+                  			<xs:restriction base="xs:string">
+                    			<xs:pattern value=".{1,80}"/>
+                  			</xs:restriction>
+                		</xs:simpleType>
+                	</xs:element>
+
+      				<xs:element name="codigo_postal">
+      					<xs:simpleType>
+                  			<xs:restriction base="xs:string">
+                    			<xs:pattern value="\d{5}"/>
+                  			</xs:restriction>
+                		</xs:simpleType>
+                	</xs:element>
+
+      				<xs:element name="provincia">
+      					<xs:simpleType>
+                  			<xs:restriction base="xs:string">
+                    			<xs:pattern value=".{1,80}"/>
+                  			</xs:restriction>
+                		</xs:simpleType>
+                	</xs:element>
+
+    			</xs:sequence>
+  			</xs:complexType>
+
+  			<xs:attributeGroup name="persona">
+
+    			<xs:attribute name="dni" type="xs:string">
+    				<xs:simpleType>
+                  		<xs:restriction base="xs:string">
+                    		<xs:pattern value="[A-Z]?[1-9][0-9]{7}[A-Z]"/>
+                  		</xs:restriction>
+                	</xs:simpleType>
+                </xs:attribute>
+
+    			<xs:attribute name="sexo" type="xs:string">
+    				<xs:simpleType>
+                  		<xs:restriction base="xs:string">
+                    		<xs:pattern value="[H|M]"/>
+                  		</xs:restriction>
+                	</xs:simpleType>
+                </xs:attribute>
+    			
+  			</xs:attributeGroup>
+
+  			 <xs:complexType name="historial">
+    			<xs:sequence>
+
+      				<xs:element name="estado_de_libertad" type="xs:string"/>
+      				<xs:element name="delitos_cometidos" type="edadPersona"/>
+      				<xs:element name="juzgado" type="xs:string"/>
+      				<xs:element name="pena" type="xs:string"/>
+      				<xs:element name="cumplimiento" type="xs:string"/>
+
+    			</xs:sequence>
+  			</xs:complexType>
+
+
+      		</xs:sequence>
+    	</xs:complexType>
+  	</xs:element>
+
+</xs:schema>

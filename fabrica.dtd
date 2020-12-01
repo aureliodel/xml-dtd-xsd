@@ -1,0 +1,85 @@
+
+<!ELEMENT fabrica (pieza*, obrero*, pintor*, ensamblador*, chapista*, coche*)>
+
+	<!ELEMENT pieza (origen, nombre, peso, stock)>
+		
+		<!ATTLIST pieza referencia ID #REQUIRED>
+		<!ELEMENT origen (#PCDATA)>
+		<!ELEMENT nombre (#PCDATA)>
+		<!ELEMENT peso (#PCDATA)>
+		<!ELEMENT stock (#PCDATA)>
+
+	<!ELEMENT obrero (dni, nombre, apellidos, direccion, localidad, codigo_postal, provincia, fecha_incorporacion)>
+		
+		<!ATTLIST obrero cod_trabajador ID #REQUIRED> 
+		<!ELEMENT dni (#PCDATA)>
+		<!ELEMENT nombre (#PCDATA)>
+		<!ELEMENT apellidos (#PCDATA)>
+		<!ELEMENT direccion(#PCDATA)>
+		<!ELEMENT localidad (#PCDATA)>
+		<!ELEMENT codigo_postal (#PCDATA)>
+		<!ELEMENT provincia (#PCDATA)>
+		<!ELEMENT fecha_incorporacion (#PCDATA)>
+
+	<!ELEMENT pintor (dni, nombre, apellidos, direccion, localidad, codigo_postal, provincia, fecha_incorporacion, fecha_examen)>
+		
+		<!ATTLIST pintor cod_trabajador ID #REQUIRED> 
+		<!ELEMENT dni (#PCDATA)>
+		<!ELEMENT nombre (#PCDATA)>
+		<!ELEMENT apellidos (#PCDATA)>
+		<!ELEMENT direccion(#PCDATA)>
+		<!ELEMENT localidad (#PCDATA)>
+		<!ELEMENT codigo_postal (#PCDATA)>
+		<!ELEMENT provincia (#PCDATA)>
+		<!ELEMENT fecha_incorporacion (#PCDATA)>
+		<!ELEMENT fecha_examen (#PCDATA)>
+
+	<!ELEMENT ensamblador (dni, nombre, apellidos, direccion, localidad, codigo_postal, provincia, fecha_incorporacion)>
+		
+		<!ATTLIST ensamblador cod_trabajador ID #REQUIRED> 
+		<!ELEMENT dni (#PCDATA)>
+		<!ELEMENT nombre (#PCDATA)>
+		<!ELEMENT apellidos (#PCDATA)>
+		<!ELEMENT direccion(#PCDATA)>
+		<!ELEMENT localidad (#PCDATA)>
+		<!ELEMENT codigo_postal (#PCDATA)>
+		<!ELEMENT provincia (#PCDATA)>
+		<!ELEMENT fecha_incorporacion (#PCDATA)>
+	
+	<!ELEMENT chapista (dni, nombre, apellidos, direccion, localidad, codigo_postal, provincia, fecha_incorporacion)>
+		
+		<!ATTLIST chapista cod_trabajador ID #REQUIRED> 
+		<!ELEMENT dni (#PCDATA)>
+		<!ELEMENT nombre (#PCDATA)>
+		<!ELEMENT apellidos (#PCDATA)>
+		<!ELEMENT direccion(#PCDATA)>
+		<!ELEMENT localidad (#PCDATA)>
+		<!ELEMENT codigo_postal (#PCDATA)>
+		<!ELEMENT provincia (#PCDATA)>
+		<!ELEMENT fecha_incorporacion (#PCDATA)>
+
+	<!ELEMENT coche (parte_coche, chapa, ensamblado)>
+
+		<!ATTLIST coche bastidor CDATA #REQUIRED>
+		<!ELEMENT parte_coche (nombre, componente*)>
+
+			<!ELEMENTE nombre (#PCDATA)>
+			<!ELEMENTE componente (montador)>
+				
+				<!ELEMENTE montador EMPTY>
+					
+					<!ATTLIST montador cod_t IDREF #REQUIRED>
+
+		<!ELEMENTchapa (chapista, pintado, color)>
+
+			<!ELEMENTE chapista EMPTY>
+					
+					<!ATTLIST chapsita cod_t IDREF #REQUIRED>
+
+			<!ELEMENTE pintado EMPTY>
+					
+					<!ATTLIST pintado cod_t IDREF #REQUIRED>
+
+		<!ELEMENTE ensmablado EMPTY>
+
+			<!ATTLIST ensamblado cod_t IDREF #REQUIRED>

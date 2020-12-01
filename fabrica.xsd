@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="fabrica">
+    <xs:complexType>
+      <xs:sequence>
+
+        <xs:element name="pieza" type="objeto" maxOccurs="unbounded"/>
+        <xs:element name="obrero" type="trabajador" maxOccurs="unbounded"/>
+        <xs:element name="pintor" type="trabajador_ampliado" maxOccurs="unbounded"/>
+        <xs:element name="ensamblador" type="trabajador" maxOccurs="unbounded"/>
+        <xs:element name="chapista" type="trabajador" maxOccurs="unbounded"/>
+        <xs:element name="coche" type="vehiculo" maxOccurs="unbounded"/>
+        
+      </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<xs:complexType name="objeto">
+    <xs:sequence>
+
+    	<xs:element name="origen">
+    		<xs:complexType>
+      			<xs:restriction base="xs:string">
+         			<xs:enumeration value="fabrica"/>
+         			<xs:enumeration value="proveedor"/>     
+      			</xs:restriction>
+   			</xs:complexType>
+		</xs:element>
+
+
+    	<xs:element name="nombre" type="xs:string"/>
+		
+		<xs:element name="peso">
+			<xs:simpleType>
+      			<xs:restriction base="xs:integer">
+         			<xs:minInclusive value="0"/>
+      			</xs:restriction>
+   			</xs:simpleType>
+		</xs:element>
+
+		<xs:element name="stock">
+			<xs:simpleType>
+      			<xs:restriction base="xs:integer">
+         			<xs:minInclusive value="0"/>
+      			</xs:restriction>
+   			</xs:simpleType>
+		</xs:element>
+
+    </xs:sequence>
+
+    <xs:attribute name="referencia" type="xs:ID">
+    	<xs:simpleType>
+            <xs:restriction base="xs:string">
+              	<xs:pattern value="[A-Z][0-9]{4}"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+</xs:complexType>
+
+<xs:complexType name="trabajador_ampliado">
+    <xs:complexContent>
+      <xs:extension base="trabajador">
+        <xs:sequence>
+          <xs:element name="fecha_examen" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="trabajador">
+    <xs:sequence>
+
+    	<xs:element name="dni">
+    		<xs:simpleType>
+                <xs:restriction base="xs:string">
+                  	<xs:pattern value="[A-Z]?[1-9][0-9]{7}[A-Z]"/>
+                </xs:restriction>
+            </xs:simpleType>
+         </xs:element>>
+
+    	<xs:element name="nombre">
+    		<xs:simpleType>
+                <xs:restriction base="xs:string">
+                  	<xs:pattern value="\D{1,35}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+
+		<xs:element name="apellido">
+			<xs:simpleType>
+                <xs:restriction base="xs:string">
+                  	<xs:pattern value="\D{1,70}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+
+		<xs:element name="direccion" type="xs:string"/>
+
+		<xs:element name="localidad">
+			<xs:simpleType>
+                <xs:restriction base="xs:string">
+                  	<xs:pattern value="\D{1,100}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+
+		<xs:element name="codigo_postal">
+			<xs:simpleType>
+                <xs:restriction base="xs:string">
+                  	<xs:pattern value="\d{5}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+
+		<xs:element name="provincia">
+			<xs:simpleType>
+                <xs:restriction base="xs:string">
+                  	<xs:pattern value="\D{1,100}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+
+		<xs:element name="fecha_incorporacion" type="xs:string"/>
+
+    </xs:sequence>
+
+    <xs:attribute name="codigo_trabajdor" type="xs:ID">
+    	<xs:simpleType>
+            <xs:restriction base="xs:string">
+              	<xs:pattern value="[T][0-9]{4}"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+</xs:complexType>
+
+<xs:complexType name="vehiculo">
+    <xs:sequence>
+
+    	<xs:element name="parte coche">
+    		<xs:complexType>
+      			<xs:sequence>
+
+      				<xs:element name="nombre">
+      					<xs:complexType>
+      						<xs:restriction base="xs:string">
+         						<xs:enumeration value="chasis"/>
+         						<xs:enumeration value="interior"/>
+         						<xs:enumeration value="motor"/>     
+      						</xs:restriction>
+   						</xs:complexType>
+					</xs:element>
+
+      				<xs:element name="componente">
+      					<xs:complexType>
+      						
+      						<xs:element name="montador">
+      							<xs:complexType>
+      								<xs:attribute name="cod_t" type="xs:IDREF"/>
+      							</xs:complexType>
+      						</xs:element>
+
+      						<xs:attribute name="ref" type="xs:IDREF"/>
+
+      					</xs:complexType>
+      				</xs:element>
+
+      				<xs:element name="chapa">
+      					<xs:complexType>
+      						<xs:sequence>
+
+      						<xs:element name="chapista">
+      							<xs:complexType>
+      								<xs:attribute name="cod_t" type="xs:IDREF"/>
+      							</xs:complexType>
+      						</xs:element>
+
+      						<xs:element name="pintado">
+      							<xs:complexType>
+      								<xs:attribute name="cod_t" type="xs:IDREF"/>
+      							</xs:complexType>
+      						</xs:element>
+
+      						<xs:element name="color" type="xs:string"/>  						
+      						</xs:sequence>
+      					</xs:complexType>
+      				</xs:element>
+
+      				<xs:element name="ensamblado">
+      					<xs:complexType>      				
+      						
+      						<xs:attribute name="cod_t" type="xs:IDREF"/>     				
+      					</xs:complexType>
+      				</xs:element>
+
+      			</xs:sequence>
+      		</xs:complexType>
+      	</xs:element>
+
+    </xs:sequence>
+
+    <xs:attribute name="bastidor" type="xs:ID">
+    	<xs:simpleType>
+            <xs:restriction base="xs:string">
+              	<xs:pattern value="[\dA-HJ-PR-Z]{17}"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+</xs:complexType>
+
+
+</xs:schema>

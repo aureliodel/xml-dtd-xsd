@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE criminales SYSTEM "criminales.dtd">
+
+<criminales xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="criminales.xsd">
+
+	<criminal>
+
+		<datos_personales dni="45784565X" sexo="H">
+
+			<apellidos_nombre>Roba Motos, Mangante</apellidos_nombre>
+			<fecha_nacimiento>14/03/2000</fecha_nacimiento>
+			<altura>1.82 metros</altura>
+			<descripcion_fisica>Persona...</descripcion_fisica>
+
+			<direccion_completa>
+
+				<direccion>Calle Desaparecido</direccion>
+				<localidad>Granada</localidad>
+				<codigo_postal>18145</codigo_postal>
+				<provincia>Granada</provincia>
+
+			</direccion_completa>
+
+		</datos_personales>
+
+		<historial_medico></historial_medico>
+
+		<historial_penal>
+
+			<estado_de_libertad>Preso</estado_de_libertad>
+			<delitos_cometidos>Robo con violencia e intimidación</delitos_cometidos>
+			<juzagado>SI</juzagado>
+			<pena>5 años</pena>
+			<cumplimiento>SI</cumplimiento>
+
+		</historial_penal>
+
+	</criminal>
+
+</criminales>

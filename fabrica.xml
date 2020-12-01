@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fabrica SYSTEM "fabrica.dtd">
+
+<fabrica xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="fabrica.xsd">
+
+	<pieza referencia="">
+		<origen></origen>
+		<nombre></nombre>
+		<peso></peso>
+		<stock></stock>
+	</pieza>
+
+	<obrero cod_trabajador="">
+		<dni></dni>
+		<nombre></nombre>
+		<apellidos></apellidos>
+		<direccion></direccion>
+		<localidad></localidad>
+		<codigo_postal></codigo_postal>
+		<provincia></provincia>
+		<fecha_incorporacion></fecha_incorporacion>
+	</obrero>
+
+	<pintor cod_trabajador="">
+		<dni></dni>
+		<nombre></nombre>
+		<apellidos></apellidos>
+		<direccion></direccion>
+		<localidad></localidad>
+		<codigo_postal></codigo_postal>
+		<provincia></provincia>
+		<fecha_incorporacion></fecha_incorporacion>
+		<fecha_examen></fecha_examen>
+	</pintor>
+
+	<ensamblador cod_trabajador="">
+		<dni></dni>
+		<nombre></nombre>
+		<apellidos></apellidos>
+		<direccion></direccion>
+		<localidad></localidad>
+		<codigo_postal></codigo_postal>
+		<provincia></provincia>
+		<fecha_incorporacion></fecha_incorporacion>
+	</ensamblador>
+
+	<chapista cod_trabajador="">
+		<dni></dni>
+		<nombre></nombre>
+		<apellidos></apellidos>
+		<direccion></direccion>
+		<localidad></localidad>
+		<codigo_postal></codigo_postal>
+		<provincia></provincia>
+		<fecha_incorporacion></fecha_incorporacion>
+	</chapista>
+
+	<coche bastidor="">
+		<parte_coche>
+			<nombre></nombre>
+			<componente ref="">
+				<montador cod_t=""></montador>
+			</componente>	
+		</parte_coche>
+		<chapa>
+			<chapista cod_t=""></chapista>
+			<pintado cod_t=""></pintado>
+			<color></color>
+		</chapa>
+		<ensamblado codigo_t=""></ensamblado>
+	</coche>
+
+
+</fabrica>
